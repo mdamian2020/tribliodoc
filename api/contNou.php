@@ -56,7 +56,7 @@ if($eroare == '') {
   //  Generez un cod secret
   $codsecret = md5(strval(time()));
   // formulez comanda INSERT
-  $comanda = "INSERT INTO utilizatori (nume, prenume, numelogin, email, parola, confirmat, cod_secret) VALUES (?, ?, ?, ?, ?, '0', '$codsecret')";
+  $comanda = "INSERT INTO utilizatori (nume, prenume, numelogin, email, parola, tip_utilizator, confirmat, cod_secret) VALUES (?, ?, ?, ?, ?, '0', '0', '$codsecret')";
   if($stm = mysqli_prepare($cnx, $comanda)) {
     mysqli_stmt_bind_param($stm, 'sssss',$nume, $prenume, $numelog, $email, $parola);
     mysqli_stmt_execute($stm);
